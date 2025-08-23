@@ -2,7 +2,9 @@
   "manifest_version": 3,
   "name": "Chapter Marker Buddy",
   "version": "1.0.0",
-  "description": "Create timestamped markers on videos with hotkeys and export as chapters",
+  "description": "Create timestamped markers on any video with hotkeys. Export as YouTube chapters, CSV, or Markdown. Perfect for content creators.",
+  "author": "Your Name",
+  "homepage_url": "https://github.com/yourusername/chapter-marker-buddy",
   "permissions": [
     "storage",
     "downloads",
@@ -85,5 +87,7 @@
       "resources": ["src/content/overlay.html"],
       "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "minimum_chrome_version": "88",
+  "short_name": "Chapter Buddy"
 }

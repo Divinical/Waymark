@@ -1,0 +1,1 @@
+Create timestamped markers on any video with Alt+M hotkey. Export as YouTube chapters, CSV, or Markdown. Works on YouTube, Twitch, Vimeo.

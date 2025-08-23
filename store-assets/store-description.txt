@@ -1,0 +1,58 @@
+Chapter Marker Buddy - Video Timestamp Manager
+
+Create timestamped markers on any web video with keyboard shortcuts and export as YouTube chapters, CSV files, or formatted lists. Perfect for content creators, researchers, students, and anyone who needs to organize video content.
+
+✨ KEY FEATURES
+
+🎯 Universal Video Support
+• Works on YouTube, Twitch, Vimeo, and any HTML5 video
+• Automatically detects video elements on any website
+• Handles single-page navigation (SPA) seamlessly
+
+⌨️ Hotkey-First Design
+• Alt+M: Add marker at current timestamp
+• Alt+Shift+M: Toggle overlay visibility  
+• Alt+E: Open export menu
+• No clicking required - stay focused on content
+
+📊 Multiple Export Formats
+• YouTube chapters format (with auto 00:00 intro)
+• Markdown with clickable deep links
+• CSV spreadsheet for analysis
+• JSON for developers and automation
+• HTML reports with optional screenshots
+
+🔗 Smart Deep Links
+• Automatically generates time-stamped URLs
+• One-click jumping to specific moments
+• Works with YouTube, Twitch, and Vimeo
+
+📸 Visual Reference System
+• Optional screenshot capture with each marker
+• High-quality WebP compression
+• Included in HTML exports for rich documentation
+
+🛡️ Privacy & Security
+• 100% local storage - no cloud, no accounts
+• No external API calls or data transmission
+• Works completely offline
+• Open source and transparent
+
+🚀 Advanced Features
+• Auto-save and session management
+• Manual timer mode for DRM-protected content
+• Batch export and import capabilities
+• Draggable, customizable interface
+• Smart title generation for markers
+• Progressive cleanup to manage storage
+
+Perfect for:
+• Content creators planning YouTube videos
+• Students taking notes on educational videos  
+• Researchers organizing interview recordings
+• Podcasters creating chapter markers
+• Anyone analyzing video content systematically
+
+The extension respects your privacy and workflow - everything stays on your device, and the hotkey-first design means you can mark important moments without interrupting your viewing experience.
+
+Install now and transform how you organize video content!

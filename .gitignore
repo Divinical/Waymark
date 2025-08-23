@@ -91,6 +91,26 @@ out
 .nuxt
 dist
 
+# Chrome Extension Distribution
+*.zip
+chapter-marker-buddy-v*.zip
+dist/
+build/
+
+# Store Assets (keep source files, ignore generated)
+store-assets/screenshots/
+store-assets/generated/
+
+# Development files (not included in distribution)
+webpack.config.js
+.build-info.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
