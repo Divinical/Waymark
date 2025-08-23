@@ -1,0 +1,815 @@
+/* Chapter Marker Buddy Overlay Styles */
+
+/* Toast animations */
+@keyframes cmb-slide-up {
+  from { transform: translate(-50%, 100%); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+@keyframes cmb-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Main overlay container */
+.cmb-overlay {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 360px;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 40px);
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  z-index: 1000000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  color: #e0e0e0;
+  user-select: none;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.cmb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #2a2a2a;
+  border-bottom: 1px solid #333;
+  border-radius: 12px 12px 0 0;
+  cursor: move;
+  flex-shrink: 0;
+  min-height: 48px;
+  box-sizing: border-box;
+}
+
+.cmb-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  margin-right: 8px;
+}
+
+.cmb-controls {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.cmb-controls button {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: #999;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.cmb-controls button:hover {
+  color: #fff;
+}
+
+/* Body */
+.cmb-body {
+  padding: 16px;
+  flex: 1;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Status bar */
+.cmb-status {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #252525;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: #999;
+}
+
+.cmb-video-info {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cmb-marker-count {
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+/* Manual timer */
+.cmb-manual-timer {
+  padding: 12px;
+  background: #252525;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.cmb-timer-display {
+  font-size: 24px;
+  font-weight: 600;
+  color: #4CAF50;
+  margin-bottom: 8px;
+  font-family: 'Courier New', monospace;
+}
+
+.cmb-timer-controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.cmb-timer-controls button {
+  padding: 4px 12px;
+  background: #333;
+  border: 1px solid #444;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s;
+}
+
+.cmb-timer-controls button:hover:not(:disabled) {
+  background: #444;
+}
+
+.cmb-timer-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cmb-timer-notice {
+  font-size: 11px;
+  color: #ff9800;
+  font-style: italic;
+}
+
+/* Main controls */
+.cmb-title-section {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.cmb-title-input {
+  width: 100%;
+  padding: 10px 40px 10px 12px; /* Match status bar left padding */
+  background: #252525;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.cmb-title-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.cmb-title-input::placeholder {
+  color: #666;
+}
+
+.cmb-btn-suggestions {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #4CAF50;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background 0.2s;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cmb-btn-suggestions:hover {
+  background: rgba(76, 175, 80, 0.1);
+}
+
+
+.cmb-suggestions-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #252525;
+  border: 1px solid #333;
+  border-radius: 6px;
+  margin-top: 4px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cmb-suggestions-header {
+  padding: 10px 12px;
+  border-bottom: 1px solid #333;
+  color: #4CAF50;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cmb-suggestions-list {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.cmb-suggestion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #fff;
+  border-bottom: 1px solid #333;
+  transition: background 0.2s;
+  font-size: 13px;
+}
+
+.cmb-suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.cmb-suggestion-item:hover {
+  background: #333;
+  color: #4CAF50;
+}
+
+.cmb-suggestion-item.primary {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+  font-weight: 500;
+}
+
+.cmb-suggestion-item.primary:hover {
+  background: rgba(76, 175, 80, 0.2);
+}
+
+/* Buttons */
+.cmb-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cmb-buttons button {
+  padding: 8px;
+  background: #333;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.cmb-buttons button:hover:not(:disabled) {
+  background: #444;
+  border-color: #555;
+  transform: translateY(-1px);
+}
+
+.cmb-buttons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cmb-btn-mark {
+  background: #4CAF50 !important;
+  border-color: #4CAF50 !important;
+}
+
+.cmb-btn-mark:hover:not(:disabled) {
+  background: #45a049 !important;
+}
+
+.cmb-icon {
+  font-size: 18px;
+}
+
+/* Options */
+.cmb-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #333;
+}
+
+.cmb-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #bbb;
+}
+
+.cmb-checkbox input {
+  cursor: pointer;
+}
+
+.cmb-checkbox:hover {
+  color: #fff;
+}
+
+/* Export panel */
+.cmb-export-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.cmb-export-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.cmb-export-close {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: #999;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0;
+}
+
+.cmb-export-close:hover {
+  color: #fff;
+}
+
+.cmb-export-group {
+  margin-bottom: 16px;
+}
+
+.cmb-export-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cmb-export-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cmb-export-buttons button {
+  padding: 8px 16px;
+  background: #333;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.cmb-export-buttons button:hover {
+  background: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.cmb-export-preview {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #333;
+}
+
+.cmb-export-preview label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #999;
+}
+
+.cmb-export-preview-text {
+  width: 100%;
+  background: #252525;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  padding: 8px;
+  resize: vertical;
+}
+
+/* More panel */
+.cmb-more-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.cmb-more-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.cmb-more-close {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: #999;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0;
+}
+
+.cmb-more-close:hover {
+  color: #fff;
+}
+
+.cmb-sessions-list {
+  margin-bottom: 16px;
+}
+
+.cmb-sessions-list label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cmb-sessions-items {
+  max-height: 200px;
+  overflow-y: auto;
+  background: #252525;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.cmb-session-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: #333;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.cmb-session-item:last-child {
+  margin-bottom: 0;
+}
+
+.cmb-session-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.cmb-session-title {
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cmb-session-meta {
+  color: #999;
+  font-size: 11px;
+}
+
+.cmb-session-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.cmb-session-actions button {
+  padding: 4px 8px;
+  background: #444;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.cmb-session-actions button:hover {
+  background: #555;
+}
+
+.cmb-storage-stats {
+  padding: 12px;
+  background: #252525;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  text-align: center;
+  color: #999;
+}
+
+.cmb-danger-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #333;
+}
+
+.cmb-danger-zone button {
+  padding: 8px;
+  background: #333;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.cmb-btn-clear-all {
+  background: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.cmb-btn-clear-all:hover {
+  background: #c82333 !important;
+}
+
+/* Accessibility Improvements */
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid #4CAF50 !important;
+  outline-offset: 2px !important;
+}
+
+.cmb-controls button:focus,
+.cmb-btn-mark:focus,
+.cmb-btn-screenshot:focus {
+  background: #333 !important;
+  border-color: #4CAF50 !important;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3) !important;
+}
+
+/* Improve contrast for better accessibility */
+.cmb-video-info p {
+  color: #ccc; /* Improved from #999 */
+}
+
+.cmb-marker-count {
+  color: #ccc; /* Improved from #999 */
+}
+
+.cmb-stat-label {
+  color: #bbb; /* Improved from #999 */
+}
+
+/* Mobile touch target improvements */
+@media (max-width: 480px) {
+  .cmb-controls button {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  
+  .cmb-btn-mark,
+  .cmb-btn-screenshot {
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+  
+  .cmb-buttons {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .cmb-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Storage Analytics */
+.cmb-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.cmb-stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  background: #252525;
+  border-radius: 4px;
+  border: 1px solid #333;
+}
+
+.cmb-stat-label {
+  font-size: 12px;
+  color: #999;
+}
+
+.cmb-stat-value {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.cmb-cleanup-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #333;
+}
+
+.cmb-btn-cleanup {
+  padding: 6px 12px;
+  background: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cmb-btn-cleanup:hover {
+  background: #45a049;
+}
+
+.cmb-btn-cleanup:disabled {
+  background: #666;
+  cursor: not-allowed;
+}
+
+.cmb-cleanup-info {
+  font-size: 11px;
+  color: #999;
+}
+
+/* Minimized state */
+.cmb-minimized {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #1a1a1a;
+  border: 2px solid #4CAF50;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  z-index: 1000000;
+  transition: transform 0.2s;
+}
+
+.cmb-minimized:hover {
+  transform: scale(1.1);
+}
+
+.cmb-mini-icon {
+  font-size: 24px;
+}
+
+.cmb-mini-count {
+  font-size: 12px;
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+/* Fullscreen adjustments */
+:-webkit-full-screen .cmb-overlay,
+:-moz-full-screen .cmb-overlay,
+:fullscreen .cmb-overlay {
+  z-index: 1000001;
+}
+
+/* Dark mode refinements */
+@media (prefers-color-scheme: light) {
+  .cmb-overlay {
+    background: #fff;
+    border-color: #ddd;
+    color: #333;
+  }
+  
+  .cmb-header {
+    background: #f5f5f5;
+    border-color: #ddd;
+  }
+  
+  .cmb-title {
+    color: #333;
+  }
+  
+  .cmb-controls button {
+    color: #666;
+  }
+  
+  .cmb-controls button:hover {
+    color: #333;
+  }
+  
+  .cmb-status,
+  .cmb-manual-timer,
+  .cmb-title-input,
+  .cmb-export-preview-text,
+  .cmb-sessions-items,
+  .cmb-storage-stats {
+    background: #f5f5f5;
+    border-color: #ddd;
+    color: #333;
+  }
+  
+  .cmb-buttons button,
+  .cmb-timer-controls button,
+  .cmb-export-buttons button,
+  .cmb-danger-zone button {
+    background: #f5f5f5;
+    border-color: #ddd;
+    color: #333;
+  }
+  
+  .cmb-buttons button:hover:not(:disabled),
+  .cmb-timer-controls button:hover:not(:disabled),
+  .cmb-export-buttons button:hover,
+  .cmb-danger-zone button:hover {
+    background: #e0e0e0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+  .cmb-overlay {
+    width: calc(100vw - 20px);
+    right: 10px;
+    bottom: 10px;
+  }
+  
+  .cmb-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

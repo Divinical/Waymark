@@ -1,0 +1,89 @@
+{
+  "manifest_version": 3,
+  "name": "Chapter Marker Buddy",
+  "version": "1.0.0",
+  "description": "Create timestamped markers on videos with hotkeys and export as chapters",
+  "permissions": [
+    "storage",
+    "downloads",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "src/service_worker.js"
+  },
+  "action": {
+    "default_title": "Toggle Chapter Marker Buddy overlay",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "commands": {
+    "mark": {
+      "suggested_key": {
+        "default": "Alt+M"
+      },
+      "description": "Add a marker at current video time"
+    },
+    "toggle-overlay": {
+      "suggested_key": {
+        "default": "Alt+Shift+M"
+      },
+      "description": "Show/hide the marker overlay"
+    },
+    "export": {
+      "suggested_key": {
+        "default": "Alt+E"
+      },
+      "description": "Export markers in various formats"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://www.twitch.tv/*",
+        "https://vimeo.com/*",
+        "*://*/*"
+      ],
+      "exclude_matches": [
+        "*://*.netflix.com/*",
+        "*://*.primevideo.com/*",
+        "*://*.disneyplus.com/*",
+        "*://*.hulu.com/*",
+        "*://*.max.com/*",
+        "*://*.peacocktv.com/*",
+        "*://*.paramountplus.com/*",
+        "*://*.apple.com/tv/*"
+      ],
+      "js": [
+        "src/content/utils.js",
+        "src/content/storage.js",
+        "src/content/screenshot-db.js",
+        "src/content/title-generator.js",
+        "src/content/deeplinks.js",
+        "src/content/exporters.js",
+        "src/content/content.js"
+      ],
+      "css": ["src/content/overlay.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["src/content/overlay.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

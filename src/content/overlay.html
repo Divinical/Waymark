@@ -1,0 +1,183 @@
+<!-- Chapter Marker Buddy Overlay -->
+<div id="cmb-overlay" class="cmb-overlay" style="display: none;">
+  <div class="cmb-header">
+    <span class="cmb-title">📍 Chapter Markers</span>
+    <div class="cmb-controls">
+      <button class="cmb-btn-minimize" title="Minimize">_</button>
+      <button class="cmb-btn-close" title="Close (Alt+Shift+M)">×</button>
+    </div>
+  </div>
+  
+  <div class="cmb-body">
+    <!-- Status Bar -->
+    <div class="cmb-status">
+      <span class="cmb-video-info">No video detected</span>
+      <span class="cmb-marker-count">0 markers</span>
+    </div>
+    
+    <!-- Manual Timer (hidden by default) -->
+    <div class="cmb-manual-timer" style="display: none;">
+      <div class="cmb-timer-display">00:00:00</div>
+      <div class="cmb-timer-controls">
+        <button class="cmb-timer-start">Start</button>
+        <button class="cmb-timer-pause" disabled>Pause</button>
+        <button class="cmb-timer-reset">Reset</button>
+      </div>
+      <div class="cmb-timer-notice">Manual timing mode (video time unavailable)</div>
+    </div>
+    
+    <!-- Main Controls -->
+    <div class="cmb-main">
+      <div class="cmb-title-section">
+        <input type="text" 
+               class="cmb-title-input" 
+               placeholder="Enter marker title (or leave empty for auto-generation)..." 
+               maxlength="200">
+        <button class="cmb-btn-suggestions" title="Show Title Suggestions">
+          <span class="cmb-icon">💡</span>
+        </button>
+        <div class="cmb-suggestions-panel" style="display: none;">
+          <div class="cmb-suggestions-header">Suggested Titles:</div>
+          <div class="cmb-suggestions-list"></div>
+        </div>
+      </div>
+      
+      <div class="cmb-buttons">
+        <button class="cmb-btn-screenshot" title="Take Screenshot for Next Marker">
+          <span class="cmb-icon">📸</span>
+        </button>
+        <button class="cmb-btn-mark" title="Add Marker (Alt+M)">
+          <span class="cmb-icon">🔖</span> Mark
+        </button>
+        <button class="cmb-btn-undo" title="Remove Last Marker" disabled>
+          <span class="cmb-icon">↩</span> Undo
+        </button>
+        <button class="cmb-btn-export" title="Export Markers (Alt+E)" disabled>
+          <span class="cmb-icon">📤</span> Export
+        </button>
+        <button class="cmb-btn-more" title="More Options">
+          <span class="cmb-icon">⋯</span> More
+        </button>
+      </div>
+      
+      <div class="cmb-options">
+        <div class="cmb-quality-control">
+          <label>Screenshot Quality: <span id="cmb-quality-value">75</span>%</label>
+          <input type="range" id="cmb-screenshot-quality" min="50" max="95" value="75" style="width: 120px;">
+        </div>
+        <label class="cmb-checkbox">
+          <input type="checkbox" id="cmb-insert-intro" checked>
+          <span>Insert 00:00 intro on export</span>
+        </label>
+        <label class="cmb-checkbox">
+          <input type="checkbox" id="cmb-auto-title-enabled" checked>
+          <span>Auto-generate titles when empty</span>
+        </label>
+        <label class="cmb-checkbox">
+          <input type="checkbox" id="cmb-show-suggestions" checked>
+          <span>Show title suggestions button</span>
+        </label>
+        <label class="cmb-checkbox">
+          <input type="checkbox" id="cmb-auto-screenshot" checked>
+          <span>Auto-capture screenshots with markers</span>
+        </label>
+      </div>
+    </div>
+    
+    <!-- Export Panel (hidden by default) -->
+    <div class="cmb-export-panel" style="display: none;">
+      <div class="cmb-export-header">
+        <span>Export Formats</span>
+        <button class="cmb-export-close">×</button>
+      </div>
+      
+      <div class="cmb-export-formats">
+        <div class="cmb-export-group">
+          <label>Text Formats (Copy)</label>
+          <div class="cmb-export-buttons">
+            <button class="cmb-export-youtube" data-format="youtube">
+              YouTube Chapters
+            </button>
+            <button class="cmb-export-markdown" data-format="markdown">
+              Markdown
+            </button>
+          </div>
+        </div>
+        
+        <div class="cmb-export-group">
+          <label>File Formats (Download)</label>
+          <div class="cmb-export-buttons">
+            <button class="cmb-export-csv" data-format="csv">
+              CSV
+            </button>
+            <button class="cmb-export-json" data-format="json">
+              JSON
+            </button>
+            <button class="cmb-export-html" data-format="html">
+              HTML
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cmb-export-preview">
+        <label>Preview:</label>
+        <textarea class="cmb-export-preview-text" readonly rows="6"></textarea>
+      </div>
+    </div>
+    
+    <!-- More Options Panel (hidden by default) -->
+    <div class="cmb-more-panel" style="display: none;">
+      <div class="cmb-more-header">
+        <span>Sessions & Settings</span>
+        <button class="cmb-more-close">×</button>
+      </div>
+      
+      <div class="cmb-sessions-list">
+        <label>Recent Sessions:</label>
+        <div class="cmb-sessions-items">
+          <!-- Sessions will be dynamically added here -->
+        </div>
+      </div>
+      
+      <div class="cmb-storage-stats">
+        <label>Storage Analytics:</label>
+        <div class="cmb-stats-grid">
+          <div class="cmb-stat-item">
+            <span class="cmb-stat-label">Chrome Storage:</span>
+            <span class="cmb-stat-value" id="cmb-chrome-storage">Loading...</span>
+          </div>
+          <div class="cmb-stat-item">
+            <span class="cmb-stat-label">Screenshots (IndexedDB):</span>
+            <span class="cmb-stat-value" id="cmb-screenshot-storage">Loading...</span>
+          </div>
+          <div class="cmb-stat-item">
+            <span class="cmb-stat-label">Total Sessions:</span>
+            <span class="cmb-stat-value" id="cmb-session-count">0</span>
+          </div>
+          <div class="cmb-stat-item">
+            <span class="cmb-stat-label">Total Markers:</span>
+            <span class="cmb-stat-value" id="cmb-total-markers">0</span>
+          </div>
+        </div>
+        <div class="cmb-cleanup-section">
+          <button class="cmb-btn-cleanup" id="cmb-manual-cleanup">Run Cleanup</button>
+          <span class="cmb-cleanup-info" id="cmb-last-cleanup">Last cleanup: Never</span>
+        </div>
+      </div>
+      
+      <div class="cmb-danger-zone">
+        <button class="cmb-btn-clear-all">Clear All Data</button>
+        <button class="cmb-btn-export-all">Export All Data</button>
+        <button class="cmb-btn-import">Import Data</button>
+        <input type="file" id="cmb-import-file" accept=".json" style="display: none;">
+      </div>
+    </div>
+  </div>
+  
+  <!-- Minimized State -->
+  <div class="cmb-minimized" style="display: none;">
+    <span class="cmb-mini-icon">📍</span>
+    <span class="cmb-mini-count">0</span>
+  </div>
+</div>
