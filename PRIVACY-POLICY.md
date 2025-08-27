@@ -124,8 +124,7 @@ Since all data is stored locally, you have complete control:
 
 For privacy-related questions or concerns:
 
-- **GitHub**: [Repository Issues Page]
-- **Email**: [Your contact email]
+- **Email**: ben@forgeheart.run
 
 ## Open Source Transparency
 
