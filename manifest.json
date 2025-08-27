@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "Chapter Marker Buddy",
+  "name": "Waymark",
   "version": "1.0.0",
   "description": "Create timestamped markers on any video with hotkeys. Export as YouTube chapters, CSV, or Markdown. Perfect for content creators.",
   "author": "Your Name",
-  "homepage_url": "https://github.com/yourusername/chapter-marker-buddy",
+  "homepage_url": "https://github.com/yourusername/waymark",
   "permissions": [
     "storage",
     "downloads",
@@ -19,7 +19,7 @@
     "service_worker": "src/service_worker.js"
   },
   "action": {
-    "default_title": "Toggle Chapter Marker Buddy overlay",
+    "default_title": "Toggle Waymark overlay",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
@@ -89,5 +89,5 @@
     }
   ],
   "minimum_chrome_version": "88",
-  "short_name": "Chapter Buddy"
+  "short_name": "Waymark"
 }

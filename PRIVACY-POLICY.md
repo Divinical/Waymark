@@ -1,16 +1,16 @@
-# Privacy Policy for Chapter Marker Buddy
+# Privacy Policy for Waymark
 
 **Effective Date:** January 2025  
 **Last Updated:** January 2025
 
 ## Overview
 
-Chapter Marker Buddy is a privacy-first Chrome extension that helps you create timestamped markers on web videos. We are committed to protecting your privacy and being transparent about our data practices.
+Waymark is a privacy-first Chrome extension that helps you create timestamped markers on web videos. We are committed to protecting your privacy and being transparent about our data practices.
 
 ## Data Collection and Storage
 
 ### What We Collect
-Chapter Marker Buddy collects and stores the following data **locally on your device only**:
+Waymark collects and stores the following data **locally on your device only**:
 
 - **Video markers**: Timestamps, titles, and optional screenshots you create
 - **Session data**: URL, video title, and creation dates for organization
@@ -71,7 +71,7 @@ All data is stored exclusively in your browser's local storage using Chrome's `c
 ## Third-Party Services
 
 ### No Third Parties
-Chapter Marker Buddy does not:
+Waymark does not:
 - Connect to external APIs or services
 - Use third-party analytics (Google Analytics, etc.)
 - Integrate with social media platforms
@@ -94,7 +94,7 @@ Chapter Marker Buddy does not:
 
 ## Children's Privacy
 
-Chapter Marker Buddy does not knowingly collect data from children under 13. Since all processing is local and no personal information is collected, the extension is generally safe for all ages. Parents should supervise children's internet usage as appropriate.
+Waymark does not knowingly collect data from children under 13. Since all processing is local and no personal information is collected, the extension is generally safe for all ages. Parents should supervise children's internet usage as appropriate.
 
 ## International Users
 
@@ -129,7 +129,7 @@ For privacy-related questions or concerns:
 
 ## Open Source Transparency
 
-Chapter Marker Buddy is open source. You can review the complete source code to verify our privacy practices:
+Waymark is open source. You can review the complete source code to verify our privacy practices:
 
 - **Source code**: Available on GitHub
 - **No obfuscation**: All code is readable and auditable

@@ -1,4 +1,4 @@
-Chapter Marker Buddy - Video Timestamp Manager
+Waymark - Video Timestamp Manager
 
 Create timestamped markers on any web video with keyboard shortcuts and export as YouTube chapters, CSV files, or formatted lists. Perfect for content creators, researchers, students, and anyone who needs to organize video content.
 

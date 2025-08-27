@@ -1,4 +1,4 @@
-# Chapter Marker Buddy
+# Waymark
 
 A lightweight, hotkey-first Chrome/Edge extension for creating timestamped markers on any web page with video elements. Perfect for creating YouTube chapters, taking notes during videos, and exporting timestamps in multiple formats.
 
@@ -27,7 +27,7 @@ A lightweight, hotkey-first Chrome/Edge extension for creating timestamped marke
 2. Open Chrome or Edge and navigate to `chrome://extensions/`
 3. Enable "Developer mode" in the top right
 4. Click "Load unpacked"
-5. Select the `chapter-marker-buddy` folder
+5. Select the `waymark` folder
 6. The extension icon should appear in your toolbar
 
 ## ⌨️ How to Use

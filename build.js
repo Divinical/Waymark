@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Build script for Chapter Marker Buddy Chrome Extension
+ * Build script for Waymark Chrome Extension
  * Creates a clean distribution package ready for Chrome Web Store submission
  */
 
@@ -33,7 +33,7 @@ const EXCLUDED_FILES = [
   'store-assets'
 ];
 
-console.log('🚀 Building Chapter Marker Buddy for Chrome Web Store...\n');
+console.log('🚀 Building Waymark for Chrome Web Store...\n');
 
 // Clean previous build
 if (fs.existsSync(BUILD_DIR)) {

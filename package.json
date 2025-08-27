@@ -1,12 +1,12 @@
 {
-  "name": "chapter-marker-buddy",
+  "name": "waymark",
   "version": "1.0.0",
   "description": "A lightweight, hotkey-first Chrome extension for creating timestamped markers on any web video. Perfect for creating YouTube chapters, taking notes during videos, and exporting timestamps in multiple formats.",
   "main": "src/service_worker.js",
   "scripts": {
     "build": "node build.js",
     "package": "npm run build && npm run zip",
-    "zip": "node -e \"const fs=require('fs'); const archiver=require('archiver'); const archive=archiver('zip'); const stream=fs.createWriteStream('chapter-marker-buddy-v1.0.0.zip'); archive.pipe(stream); archive.directory('dist/', false); archive.finalize();\"",
+    "zip": "node -e \"const fs=require('fs'); const archiver=require('archiver'); const archive=archiver('zip'); const stream=fs.createWriteStream('waymark-v1.0.0.zip'); archive.pipe(stream); archive.directory('dist/', false); archive.finalize();\"",
     "validate": "node -e \"console.log('Extension validation script - checking manifest and structure'); const manifest=require('./dist/manifest.json'); console.log('✓ Manifest valid:', manifest.name, 'v'+manifest.version);\"",
     "clean": "node -e \"const fs=require('fs'); if(fs.existsSync('dist')) fs.rmSync('dist', {recursive: true}); if(fs.existsSync('*.zip')) fs.readdirSync('.').filter(f=>f.endsWith('.zip')).forEach(f=>fs.unlinkSync(f));\""
   },
@@ -26,10 +26,10 @@
     "video-tools"
   ],
   "author": "Your Name",
-  "homepage": "https://github.com/yourusername/chapter-marker-buddy",
+  "homepage": "https://github.com/yourusername/waymark",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/chapter-marker-buddy.git"
+    "url": "https://github.com/yourusername/waymark.git"
   },
   "license": "MIT"
 }

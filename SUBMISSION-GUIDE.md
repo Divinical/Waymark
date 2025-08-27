@@ -1,12 +1,12 @@
 # Chrome Web Store Submission Guide
 
-Your Chapter Marker Buddy extension is now ready for Chrome Web Store submission! Here's your complete guide.
+Your Waymark extension is now ready for Chrome Web Store submission! Here's your complete guide.
 
 ## 📦 Package Status
 
 ✅ **Ready for submission!**
 
-- **ZIP Package**: `chapter-marker-buddy-v1.0.0.zip` (175 KB)
+- **ZIP Package**: `waymark-v1.0.0.zip` (175 KB)
 - **Validation**: All checks passed
 - **Privacy Policy**: Created and included
 - **Store Assets**: Templates and copy ready
@@ -23,14 +23,14 @@ Your Chapter Marker Buddy extension is now ready for Chrome Web Store submission
 ### Step 2: Upload Extension
 
 1. Click **"Add new item"** 
-2. Upload `chapter-marker-buddy-v1.0.0.zip`
+2. Upload `waymark-v1.0.0.zip`
 3. Wait for automatic analysis (2-3 minutes)
 4. Fix any issues reported by the analyzer
 
 ### Step 3: Complete Store Listing
 
 #### Basic Information
-- **Name**: Chapter Marker Buddy
+- **Name**: Waymark
 - **Summary**: Use `store-assets/store-summary.txt` (132 characters)
 - **Description**: Use `store-assets/store-description.txt`
 - **Category**: Productivity
@@ -102,7 +102,7 @@ Test your packaged extension:
 
 ### Title
 ```
-Chapter Marker Buddy
+Waymark
 ```
 
 ### Summary (132 chars max)

@@ -1,10 +1,10 @@
-# Chapter Marker Buddy - Project Guide
+# Waymark - Project Guide
 
 **Last Updated**: January 2025  
 **Version**: 1.0.0  
 **Status**: Production Ready / Chrome Web Store Submitted
 
-This comprehensive guide contains everything you need to know to maintain, upgrade, and enhance the Chapter Marker Buddy Chrome extension.
+This comprehensive guide contains everything you need to know to maintain, upgrade, and enhance the Waymark Chrome extension.
 
 ## 📁 Project Structure
 
@@ -365,4 +365,4 @@ Track via extension console:
 
 **Remember**: Chrome Web Store reviews can take 3-7 business days. Plan releases accordingly and always test thoroughly before submission.
 
-This guide should provide everything you need to successfully maintain and enhance Chapter Marker Buddy. Keep this file updated as you make changes to the project!
+This guide should provide everything you need to successfully maintain and enhance Waymark. Keep this file updated as you make changes to the project!
