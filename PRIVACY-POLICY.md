@@ -1,7 +1,7 @@
 # Privacy Policy for Waymark
 
-**Effective Date:** January 2025  
-**Last Updated:** January 2025
+**Effective Date:** August 2025  
+**Last Updated:** 27 - August - 2025
 
 ## Overview
 
